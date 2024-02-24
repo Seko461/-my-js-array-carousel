@@ -20,11 +20,9 @@ console.log(slides, activeImage, slidesElement);
 
 for (let i = 0; i < slides.length; i++) {
     const slide = slides[i];
-
     console.log(slide);
 
     const slideMarkup = ` <img class="${i === activeImage ? 'active' : ''}" src="./assets/img/${slide}" alt="">`;
-
     console.log(slideMarkup);
 
     slidesElement.insertAdjacentHTML('beforeend', slideMarkup);
@@ -33,3 +31,60 @@ for (let i = 0; i < slides.length; i++) {
 
 
 // funzione pulsanti
+
+const prev = document.querySelector('.prev');
+
+prev.addEventListener('click', function () {
+    console.log('prev');
+
+    activeImage--
+    console.log(activeImage);
+
+    //cambio la classe active all'immagine
+
+    const currentImage = document.querySelector('img.active');
+    console.log(currentImage);
+
+    currentImage.classList.remove('active');
+
+    const allSlides = document.querySelectorAll('.slides>img');
+
+    console.log(activeImage, slides, allSlides);
+
+    console.log(allSlides[activeImage]);
+
+    allSlides[activeImage].classList.add('active');
+
+
+
+});
+
+const next = document.querySelector('.next');
+
+next.addEventListener('click', function () {
+    console.log('next');
+
+    activeImage++
+    console.log(activeImage);
+
+    //cambio la classe active all'immagine
+
+    const currentImage = document.querySelector('img.active');
+    console.log(currentImage);
+
+    currentImage.classList.remove('active');
+
+    const allSlides = document.querySelectorAll('.slides>img');
+
+    console.log(activeImage, slides, allSlides);
+
+    console.log(allSlides[activeImage]);
+
+    allSlides[activeImage].classList.add('active');
+
+
+
+});
+
+
+console.log(prev, next);
