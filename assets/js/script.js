@@ -13,6 +13,7 @@ const thumbElement = document.querySelector('.thumbnails');
 
 
 let activeImage = 0;
+let visibleImage = 0;
 
 console.log(slides, activeImage, slidesElement);
 
@@ -23,16 +24,23 @@ console.log(slides, activeImage, slidesElement);
 for (let i = 0; i < slides.length; i++) {
     const slide = slides[i];
     const thumb = slides[i];
+
     console.log(slide);
+    console.log(thumb);
 
     const slideMarkup = ` <img class="${i === activeImage ? 'active' : ''}" src="./assets/img/${slide}" alt="">`;
-    const thumbMarkup = ` <img class="${i === activeImage ? 'active' : ''}" src="./assets/img/${thumb}" alt="">`;
-    console.log(slideMarkup);
+    const thumbMarkup = `  <img class='${i === visibleImage ? 'opacity' : ''} active' src="./assets/img/${slide}" alt="">`;
+
+    console.log(slideMarkup, thumbMarkup);
 
     slidesElement.insertAdjacentHTML('beforeend', slideMarkup);
     thumbElement.insertAdjacentHTML('beforeend', thumbMarkup);
 
+
 };
+
+
+
 
 
 
@@ -49,27 +57,38 @@ prev.addEventListener('click', function () {
     activeImage--
     console.log(activeImage);
 
+    visibleImage--
+    console.log(visibleImage);
+
+
+
     // debug indice activeImage
 
     if (activeImage < 0) {
         activeImage = slides.length - 1;
     }
-
+    if (visibleImage < 0) {
+        visibleImage = slides.length - 1;
+    }
     //cambio la classe active all'immagine
 
     const currentImage = document.querySelector('img.active');
     console.log(currentImage);
 
+    const currentVisible = document.querySelector('img.opacity');
+
     currentImage.classList.remove('active');
+    currentVisible.classList.remove('opacity');
 
     const allSlides = document.querySelectorAll('.slides>img');
+    const allthumbs = document.querySelectorAll('.thumbnails>img');
 
     console.log(activeImage, slides, allSlides);
 
     console.log(allSlides[activeImage]);
 
     allSlides[activeImage].classList.add('active');
-
+    allthumbs[visibleImage].classList.add('opacity');
 
 
 });
@@ -82,26 +101,41 @@ next.addEventListener('click', function () {
     activeImage++
     console.log(activeImage);
 
+
+    visibleImage++
+    console.log(visibleImage);
+
     // debug indice activeImage
 
     if (activeImage > slides.length - 1) {
         activeImage = 0;
     }
+    if (visibleImage > slides.length - 1) {
+        visibleImage = 0;
+    }
 
     //cambio la classe active all'immagine
 
     const currentImage = document.querySelector('img.active');
+
+    const currentVisible = document.querySelector('img.opacity');
+
     console.log(currentImage);
+    console.log(currentVisible);
+
 
     currentImage.classList.remove('active');
+    currentVisible.classList.remove('opacity');
 
     const allSlides = document.querySelectorAll('.slides>img');
+    const allthumbs = document.querySelectorAll('.thumbnails>img');
 
     console.log(activeImage, slides, allSlides);
 
     console.log(allSlides[activeImage]);
 
     allSlides[activeImage].classList.add('active');
+    allthumbs[visibleImage].classList.add('opacity');
 
 
 

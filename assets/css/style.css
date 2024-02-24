@@ -20,13 +20,14 @@ img:not(.active) {
     display: none;
 }
 
-.opacity {
+.thumbnails>img {
+    opacity: 50%;
+}
+
+.opacity.active {
     opacity: 1;
 }
 
-img:not(.opacity) {
-    opacity: 50%;
-}
 
 .thumbnails {
     border: 1px solid black;
