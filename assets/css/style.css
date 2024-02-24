@@ -6,12 +6,9 @@
 
 
 .slider {
-
     width: 600px;
     margin: auto;
-
-
-
+    margin-top: 3rem;
 }
 
 
@@ -29,4 +26,20 @@ img:not(.active) {
 .controls {
     display: flex;
     justify-content: space-between;
+}
+
+.prev,
+.next {
+    font-size: 2rem;
+    background-color: gray;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem;
+    transform: translateY(-225px);
+
+
 }
