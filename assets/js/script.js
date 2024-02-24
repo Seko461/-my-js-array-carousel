@@ -9,6 +9,8 @@ const slides = [
 ]
 
 const slidesElement = document.querySelector('.slides');
+const thumbElement = document.querySelector('.thumbnails');
+
 
 let activeImage = 0;
 
@@ -20,14 +22,21 @@ console.log(slides, activeImage, slidesElement);
 
 for (let i = 0; i < slides.length; i++) {
     const slide = slides[i];
+    const thumb = slides[i];
     console.log(slide);
 
     const slideMarkup = ` <img class="${i === activeImage ? 'active' : ''}" src="./assets/img/${slide}" alt="">`;
+    const thumbMarkup = ` <img class="${i === activeImage ? 'active' : ''}" src="./assets/img/${thumb}" alt="">`;
     console.log(slideMarkup);
 
     slidesElement.insertAdjacentHTML('beforeend', slideMarkup);
+    thumbElement.insertAdjacentHTML('beforeend', thumbMarkup);
 
 };
+
+
+
+
 
 
 // funzione pulsanti
