@@ -3,3 +3,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+.slider {
+
+    width: 600px;
+    margin: auto;
+
+
+
+}
+
+
+.slides {}
+
+.slides>img {
+    max-width: 100%;
+
+}
+
+img:not(.active) {
+    display: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+}
