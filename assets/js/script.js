@@ -40,6 +40,12 @@ prev.addEventListener('click', function () {
     activeImage--
     console.log(activeImage);
 
+    // debug indice activeImage
+
+    if (activeImage < 0) {
+        activeImage = slides.length - 1;
+    }
+
     //cambio la classe active all'immagine
 
     const currentImage = document.querySelector('img.active');
@@ -66,6 +72,12 @@ next.addEventListener('click', function () {
 
     activeImage++
     console.log(activeImage);
+
+    // debug indice activeImage
+
+    if (activeImage > slides.length - 1) {
+        activeImage = 0;
+    }
 
     //cambio la classe active all'immagine
 
